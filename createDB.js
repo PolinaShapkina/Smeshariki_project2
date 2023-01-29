@@ -10,8 +10,11 @@ var database = client.db("heroes");
 database.dropDatabase()
 database = client.db("heroes");
 const hunter = database.collection("hero");
-const result = await hunter.insertOne({name:"Крош"});
-console.log(`${result} documents were inserted`);
+const result = await hunter.insertMany(data);
+console.log(`${result.insertedCount} documents were inserted`);
+for (const key in result) {
+            console.log(`${key}: ${result[key]}`);
+            }
 } finally {
 await client.close();
 }
