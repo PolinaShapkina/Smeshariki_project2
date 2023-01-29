@@ -1,4 +1,4 @@
-async.series([
+async.parallel([
     firstWord,
     secondWord,
     thirdWord
